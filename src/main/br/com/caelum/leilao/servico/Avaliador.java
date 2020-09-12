@@ -1,11 +1,13 @@
-package br.com.caelum.leilao.dominio;
+package main.br.com.caelum.leilao.servico;
+
+import main.br.com.caelum.leilao.servico.Lance;
 
 public class Avaliador {
 
     private double maiorDeTodos = Double.NEGATIVE_INFINITY;
     private double menorDeTodos = Double.POSITIVE_INFINITY;
 
-    public void avalia(Leilao leilao) {
+    public void avalia(Lance.Leilao leilao) {
 
         for(Lance lance : leilao.getLances()) {
             if(lance.getValor() > maiorDeTodos) maiorDeTodos = lance.getValor();

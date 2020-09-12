@@ -1,5 +1,8 @@
-package br.com.caelum.leilao.dominio;
+package test.br.com.caelum.leilao.servico;
 
+import main.br.com.caelum.leilao.servico.Avaliador;
+import main.br.com.caelum.leilao.servico.Lance;
+import main.br.com.caelum.leilao.servico.Usuario;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,7 +15,7 @@ public class AvaliadorTest {
         Usuario jose = new Usuario("José");
         Usuario maria = new Usuario("Maria");
 
-        Leilao leilao = new Leilao("Playstation 3 Novo");
+        Lance.Leilao leilao = new Lance.Leilao("Playstation 3 Novo");
 
         leilao.propoe(new Lance(maria, 250.0));
         leilao.propoe(new Lance(joao, 300.0));

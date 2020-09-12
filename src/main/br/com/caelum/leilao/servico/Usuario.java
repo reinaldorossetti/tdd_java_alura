@@ -1,4 +1,4 @@
-package br.com.caelum.leilao.dominio;
+package main.br.com.caelum.leilao.servico;
 
 public class Usuario {
 
