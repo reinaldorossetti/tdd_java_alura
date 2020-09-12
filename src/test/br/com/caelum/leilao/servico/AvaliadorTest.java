@@ -3,8 +3,9 @@ package test.br.com.caelum.leilao.servico;
 import main.br.com.caelum.leilao.servico.Avaliador;
 import main.br.com.caelum.leilao.servico.Lance;
 import main.br.com.caelum.leilao.servico.Usuario;
-import org.junit.Assert;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class AvaliadorTest {
 
@@ -28,8 +29,27 @@ public class AvaliadorTest {
         // comparando a saida com o esperado
         double maiorEsperado = 400;
         double menorEsperado = 250;
+        double valorMedio = 316.66;
 
-        Assert.assertEquals(maiorEsperado, leiloeiro.getMaiorLance(), 0.0001);
-        Assert.assertEquals(menorEsperado, leiloeiro.getMenorLance(), 0.0001);
+        assertEquals(maiorEsperado, leiloeiro.getMaiorLance(),0.001);
+        assertEquals(menorEsperado, leiloeiro.getMenorLance(), 0.0001);
+        assertEquals(valorMedio, leiloeiro.getValorMedioLance(leilao), 0.01);
+    }
+
+    @Test
+    public void testaMediaDeZeroLance(){
+
+        // cenario
+        Usuario ewertom = new Usuario("Ewertom");
+
+        // acao
+        Lance.Leilao leilao = new Lance.Leilao("Iphone 7");
+
+        Avaliador avaliador = new Avaliador();
+        avaliador.avalia(leilao);
+
+        //validacao
+        assertEquals(0, avaliador.getValorMedioLance(leilao), 0.0001);
+
     }
 }

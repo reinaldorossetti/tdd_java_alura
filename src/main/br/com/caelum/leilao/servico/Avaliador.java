@@ -15,6 +15,17 @@ public class Avaliador {
         }
     }
 
+    public double getValorMedioLance(Lance.Leilao leilao){
+        double valorMedio = 0;
+        for(Lance lance : leilao.getLances()) {
+            valorMedio += lance.getValor();
+        }
+        if (leilao.getLances().size() > 0 || valorMedio > 0) {
+            return valorMedio / leilao.getLances().size();
+        }
+        return valorMedio;
+    }
+
     public double getMaiorLance() { return maiorDeTodos; }
     public double getMenorLance() { return menorDeTodos; }
 
