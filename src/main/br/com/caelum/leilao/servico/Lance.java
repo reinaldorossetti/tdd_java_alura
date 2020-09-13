@@ -44,7 +44,5 @@ public class Lance {
 			return Collections.unmodifiableList(lances);
 		}
 
-
-
 	}
 }

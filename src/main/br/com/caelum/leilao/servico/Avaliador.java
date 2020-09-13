@@ -14,20 +14,23 @@ public class Avaliador {
     private List<Lance> maiores;
 
     public void avalia(Lance.Leilao leilao) {
-
         for(Lance lance : leilao.getLances()) {
             if(lance.getValor() > maiorDeTodos) maiorDeTodos = lance.getValor();
-            if(lance.getValor() < menorDeTodos) menorDeTodos = lance.getValor();
+            if (lance.getValor() < menorDeTodos) menorDeTodos = lance.getValor();
         }
+
+        pegaOsMaioresNo(leilao);
+    }
+
+    private void pegaOsMaioresNo(Lance.Leilao leilao) {
         maiores = new ArrayList<Lance>(leilao.getLances());
         Collections.sort(maiores, new Comparator<Lance>() {
-            @Override
             public int compare(Lance o1, Lance o2) {
-                    if(o1.getValor() < o2.getValor()) return 1;
-                    if(o1.getValor() > o2.getValor()) return -1;
-                    return 0;
-                }
-            });
+                if(o1.getValor() < o2.getValor()) return 1;
+                if(o1.getValor() > o2.getValor()) return -1;
+                return 0;
+            }
+        });
         maiores = maiores.subList(0, maiores.size() > 3 ? 3 : maiores.size());
     }
 

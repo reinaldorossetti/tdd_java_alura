@@ -2,6 +2,7 @@ package test.br.com.caelum.leilao.servico;
 
 import main.br.com.caelum.leilao.servico.Avaliador;
 import main.br.com.caelum.leilao.servico.Lance;
+import main.br.com.caelum.leilao.servico.MatematicaMaluca;
 import main.br.com.caelum.leilao.servico.Usuario;
 import org.junit.Test;
 
@@ -103,5 +104,30 @@ public class AvaliadorTest {
 
         assertEquals(700.0, leiloeiro.getMaiorLance(), 0.0001);
         assertEquals(120.0, leiloeiro.getMenorLance(), 0.0001);
+    }
+
+    @Test
+    public void deveDevolverListaVaziaCasoNaoHajaLances() {
+        Lance.Leilao leilao = new Lance.Leilao("Playstation 3 Novo");
+
+        Avaliador leiloeiro = new Avaliador();
+        leiloeiro.avalia(leilao);
+
+        List<Lance> maiores = leiloeiro.getTresMaiores();
+
+        assertEquals(0, maiores.size());
+    }
+
+
+    @Test
+    public void matematicaMalucaTeste() {
+
+        MatematicaMaluca matematica = new MatematicaMaluca();
+
+        assertEquals(160, matematica.contaMaluca(40));
+        assertEquals(90, matematica.contaMaluca(30));
+        assertEquals(60, matematica.contaMaluca(20));
+        assertEquals(10, matematica.contaMaluca(5));
+        assertEquals(0, matematica.contaMaluca(0));
     }
 }
