@@ -22,6 +22,7 @@ public class AvaliadorTest {
         leilao.propoe(new Lance(joao, 300.0));
         leilao.propoe(new Lance(jose, 400.0));
 
+        // Test Data Builder
         Lance.Leilao leilao2 = new CriadorDeLeilao().para("Playstation 3 Novo")
                 .lance(joao, 250.0)
                 .lance(maria, 300.0)
