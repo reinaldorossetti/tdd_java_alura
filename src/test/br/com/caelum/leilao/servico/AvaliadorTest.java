@@ -1,9 +1,6 @@
 package test.br.com.caelum.leilao.servico;
 
-import main.br.com.caelum.leilao.servico.Avaliador;
-import main.br.com.caelum.leilao.servico.Lance;
-import main.br.com.caelum.leilao.servico.MatematicaMaluca;
-import main.br.com.caelum.leilao.servico.Usuario;
+import main.br.com.caelum.leilao.servico.*;
 import org.junit.Test;
 
 import java.util.List;
@@ -24,6 +21,12 @@ public class AvaliadorTest {
         leilao.propoe(new Lance(maria, 250.0));
         leilao.propoe(new Lance(joao, 300.0));
         leilao.propoe(new Lance(jose, 400.0));
+
+        Lance.Leilao leilao2 = new CriadorDeLeilao().para("Playstation 3 Novo")
+                .lance(joao, 250.0)
+                .lance(maria, 300.0)
+                .lance(maria, 400.0)
+                .constroi();
 
         // executando a acao
         Avaliador leiloeiro = new Avaliador();
